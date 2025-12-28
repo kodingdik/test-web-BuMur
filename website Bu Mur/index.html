@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Warung Bu Mur</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🍽️ Warung Bu Mur</h1>
+
+  <div class="cart">
+    🛍️
+    <span id="cartCount">0</span>
+  </div>
+</header>
+
+<main class="menu-grid">
+    <!-- CATATAN -->
+    <div class="notes">
+        <h3>Catatan</h3>
+        <textarea id="notes" placeholder="Contoh: tidak pedas, pakai nasi sedikit..."></textarea>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary">
+        <p>Total Item: <span id="totalItem">0</span></p>
+        <p>Total Harga: <span id="totalPrice">Rp0</span></p>
+        <button class="order-btn" onclick="openQRIS()">Pesan Sekarang</button>
+    </div>
+
+    <!-- POPUP QRIS -->
+    <div class="modal" id="qrisModal">
+        <div class="modal-content">
+            <h2>Pembayaran QRIS</h2>
+            <img src="qris.png" alt="QRIS" class="qris-img">
+            <p id="qrisTotal"></p>
+            <p class="qris-text">
+            Silakan lakukan pembayaran via QRIS.  
+            Simpan bukti pembayaran untuk dikirim melalui WhatsApp.
+            </p>
+            <button class="paid-btn" onclick="sendWhatsApp()">Saya Sudah Bayar</button>
+            <button class="close-btn" onclick="closeQRIS()">Tutup</button>
+        </div>
+    </div>
+
+  <div class="menu-card">
+    <img src="assets/nasgor.jpg" class="menu-img">
+    <h3>Nasi Goreng</h3>
+    <p>Rp15.000</p>
+
+    <div class="qty-control">
+      <button onclick="changeQty('nasgor', -1)">−</button>
+      <span id="nasgor">0</span>
+      <button onclick="changeQty('nasgor', 1, this)">+</button>
+    </div>
+  </div>
+
+  <div class="menu-card">
+    <img src="assets/indomie.jpg" class="menu-img">
+    <h3>Mie Goreng</h3>
+    <p>Rp12.000</p>
+
+    <div class="qty-control">
+      <button onclick="changeQty('miegor', -1)">−</button>
+      <span id="miegor">0</span>
+      <button onclick="changeQty('miegor', 1, this)">+</button>
+    </div>
+  </div>
+
+</main>
+
+<div class="summary">
+  <p>Total Item: <span id="totalItem">0</span></p>
+  <p>Total Harga: <b id="totalPrice">Rp0</b></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
